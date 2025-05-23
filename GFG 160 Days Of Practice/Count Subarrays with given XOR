@@ -1,0 +1,24 @@
+class Solution {
+    public long subarrayXor(int arr[], int k) {
+        // code here
+        Map<Integer, Integer> xorMap = new HashMap<>();
+        long count = 0; int xor = 0;
+        
+        
+        for(int num : arr){
+            xor ^= num;
+        
+        
+            if(xor ==k){
+                count++;
+            }
+            
+            count+= xorMap.getOrDefault(xor ^ k, 0);
+        
+            xorMap.put(xor, xorMap.getOrDefault(xor, 0) + 1);
+        }
+    
+        return count;
+    }
+    
+}    
