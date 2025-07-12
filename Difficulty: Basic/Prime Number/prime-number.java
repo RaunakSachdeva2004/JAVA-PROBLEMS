@@ -1,35 +1,16 @@
-//{ Driver Code Starts
-import java.io.*;
-import java.util.*;
-
-class GFG
-{
-    public static void main(String args[])throws IOException
-    {
-        BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
-        int t = Integer.parseInt(read.readLine());
-        while(t-- > 0)
-        {
-            int N = Integer.parseInt(read.readLine());
-            Solution ob = new Solution();
-            System.out.println(ob.isPrime(N));
+class Solution {
+    static boolean isPrime(int n) {
+        // code here
+        if(n == 1)return false;
+        
+        if(n == 2)  return true;
+        
+        if(n % 2 ==0) return false;
+        
+        for(int i = 3; i*i <=n; i= i+2){
+            if(n % i ==0)  return false;
         }
-    }
-}
-// } Driver Code Ends
-
-
-class Solution{
-    static int isPrime(int N){
-       if(N<=1){
-           return 0;
-           
-       } // code here
-       for(int i =2; i*i<=N;i++){
-           if(N%i==0){
-               return 0;
-           }
-       }
-       return 1;
+        
+        return true;
     }
 }
